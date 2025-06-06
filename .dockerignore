@@ -1,0 +1,35 @@
+**/.git
+**/.gitignore
+**/.vs
+**/.vscode
+**/.idea
+**/*.suo
+**/*.user
+**/*.userosf
+**/*.fuseopen
+**/*.docstates
+**/*.dbmdl
+**/*.jfm
+**/*.bak
+**/*.log
+**/*.zip
+**/*.tar
+**/*.tgz
+**/*.rar
+**/*.gz
+**/*.json.log
+**/.env
+**/.DS_Store
+**/.classpath
+**/.project
+**/.settings
+
+# Docker ignore for .NET projects
+**/bin
+**/obj
+**/node_modules
+
+# Frontend specific ignores
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local

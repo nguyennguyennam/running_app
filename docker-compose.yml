@@ -1,0 +1,123 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app-network
+
+  userservice:
+    build:
+      context: .
+      dockerfile: User.Service/Dockerfile
+    container_name: userservice
+    ports:
+      - "5001:80" # Map to host port 5001 (internal container port is 80)
+    depends_on:
+      - mongodb
+    environment:
+      - MongoDbSettings__ConnectionString=mongodb://mongodb:27017
+      - MongoDbSettings__DatabaseName=running_app_users
+      - JwtSettings__Secret=thisisverylongandsecretkeyforjwtauthenticationpurposes # Match with appsettings.json
+      - JwtSettings__Issuer=RunningAppAuth
+      - JwtSettings__Audience=RunningAppUsers
+    networks:
+      - app-network
+
+  runservice:
+    build:
+      context: .
+      dockerfile: Run.Service/Dockerfile
+    container_name: runservice
+    ports:
+      - "5002:80"
+    depends_on:
+      - mongodb
+      - userservice
+    environment:
+      - MongoDbSettings__ConnectionString=mongodb://mongodb:27017
+      - MongoDbSettings__DatabaseName=running_app_runs
+      - JwtSettings__Secret=thisisverylongandsecretkeyforjwtauthenticationpurposes # Match with appsettings.json
+      - JwtSettings__Issuer=RunningAppAuth
+      - JwtSettings__Audience=RunningAppUsers
+    networks:
+      - app-network
+
+  imageservice:
+    build:
+      context: .
+      dockerfile: Image.Service/Dockerfile
+    container_name: imageservice
+    ports:
+      - "5004:80"
+    depends_on:
+      - mongodb
+      - userservice
+    environment:
+      - MongoDbSettings__ConnectionString=mongodb://mongodb:27017
+      - ImageStorage__Path=/app/wwwroot/images
+      - JwtSettings__Secret=thisisverylongandsecretkeyforjwtauthenticationpurposes # Match with appsettings.json
+      - JwtSettings__Issuer=RunningAppAuth
+      - JwtSettings__Audience=RunningAppUsers
+    volumes:
+      - image_data:/app/wwwroot/images # Persistent storage for images
+    networks:
+      - app-network
+
+  mapservice:
+    build:
+      context: .
+      dockerfile: Map.Service/Dockerfile
+    container_name: mapservice
+    ports:
+      - "5005:80"
+    depends_on:
+      - userservice # Depends on userservice for JWT validation
+    environment:
+      - GoogleMaps__ApiKey=YOUR_Maps_API_KEY # !!! REPLACE WITH YOUR KEY
+      - JwtSettings__Secret=thisisverylongandsecretkeyforjwtauthenticationpurposes # Match with appsettings.json
+      - JwtSettings__Issuer=RunningAppAuth
+      - JwtSettings__Audience=RunningAppUsers
+    networks:
+      - app-network
+
+  analyzeservice:
+    build:
+      context: .
+      dockerfile: Analyze.Service/Dockerfile
+    container_name: analyzeservice
+    ports:
+      - "5003:5003" # Flask app runs on 5003
+    networks:
+      - app-network
+
+  gatewayservice:
+    build:
+      context: .
+      dockerfile: Gateway.Service/Dockerfile
+    container_name: gatewayservice
+    ports:
+      - "5000:80" # This is the main port frontend connects to
+    depends_on:
+      - userservice
+      - runservice
+      - imageservice
+      - mapservice
+      - analyzeservice
+    environment:
+      - JwtSettings__Secret=thisisverylongandsecretkeyforjwtauthenticationpurposes # Match with appsettings.json
+      - JwtSettings__Issuer=RunningAppAuth
+      - JwtSettings__Audience=RunningAppUsers
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge # Default driver for inter-container communication
+
+volumes:
+  mongo_data: # Volume for MongoDB data persistence
+  image_data: # Volume for image persistence
