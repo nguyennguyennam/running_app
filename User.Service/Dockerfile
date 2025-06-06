@@ -4,6 +4,8 @@ WORKDIR /app
 
 # Copy the .csproj file and restore dependencies
 COPY ["User.Service/User.Service.csproj", "User.Service/"]
+COPY ["User.Service/appsettings.json", "User.Service/"]
+COPY ["User.Service/appsettings.Development.json", "User.Service/"]
 RUN dotnet restore "User.Service/User.Service.csproj"
 
 # Copy the rest of the application code
