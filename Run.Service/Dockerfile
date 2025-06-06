@@ -2,10 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
-COPY ["./running_app.sln", "./"] 
 
-COPY ["Run.Service/", "Run.Service/"]   
-COPY ["User.Service/", "User.Service/"] 
 
 COPY . .
 RUN dotnet restore "Run.Service/Run.Service.csproj"
