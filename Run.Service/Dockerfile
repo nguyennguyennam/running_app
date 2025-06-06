@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
-COPY ..
+COPY . .
 WORKDIR /app/Run.Service
 RUN dotnet restore "Run.Service/Run.Service.csproj"
 
