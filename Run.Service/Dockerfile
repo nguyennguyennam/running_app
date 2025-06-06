@@ -2,9 +2,14 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
+COPY ["./running_app.sln", "./"] 
+
+COPY ["Run.Service/", "Run.Service/"]   
+COPY ["User.Service/", "User.Service/"] 
+
 COPY . .
-WORKDIR /app/Run.Service
 RUN dotnet restore "Run.Service/Run.Service.csproj"
+WORKDIR /app/Run.Service
 
 # Publish the application into a *service-specific subfolder*
 RUN dotnet publish "Run.Service.csproj" -c Release -o /app/publish/Run.Service /p:UseAppHost=false
