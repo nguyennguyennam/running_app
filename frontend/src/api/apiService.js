@@ -3,7 +3,7 @@ import axios from 'axios';
 import {jwtDecode} from 'jwt-decode'; 
 
 
-const API_BASE_URL = 'http://localhost:5000/api'; // Ocelot Gateway URL
+const API_BASE_URL = 'https://running-app-mhyu.onrender.com/api'; 
 
 const api = axios.create({
   baseURL: API_BASE_URL,
