@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Run.Service\\Run.Service.csproj": {}
+    "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Run.Service\\Run.Service.csproj": {}
   },
   "projects": {
-    "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Run.Service\\Run.Service.csproj": {
+    "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Run.Service\\Run.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Run.Service\\Run.Service.csproj",
+        "projectUniqueName": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Run.Service\\Run.Service.csproj",
         "projectName": "Run.Service",
-        "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Run.Service\\Run.Service.csproj",
+        "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Run.Service\\Run.Service.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Run.Service\\obj\\",
+        "outputPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Run.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\User.Service\\User.Service.csproj": {
-                "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\User.Service\\User.Service.csproj"
+              "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\User.Service\\User.Service.csproj": {
+                "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\User.Service\\User.Service.csproj"
               }
             }
           }
@@ -64,7 +64,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.5.0, )"
+              "version": "[8.1.4, )"
             }
           },
           "imports": [
@@ -108,14 +108,14 @@
         }
       }
     },
-    "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\User.Service\\User.Service.csproj": {
+    "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\User.Service\\User.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\User.Service\\User.Service.csproj",
+        "projectUniqueName": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\User.Service\\User.Service.csproj",
         "projectName": "User.Service",
-        "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\User.Service\\User.Service.csproj",
+        "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\User.Service\\User.Service.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\User.Service\\obj\\",
+        "outputPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\User.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

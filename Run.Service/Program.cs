@@ -7,39 +7,44 @@ using User.Service.Services; // Reusing JwtSettings for consistency
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionStringFromEnv = Environment.GetEnvironmentVariable("MongoDbSettings__ConnectionString");
-Console.WriteLine($"DEBUG: Connection string from ENVVAR: '{connectionStringFromEnv}'");
-foreach (var kvp in builder.Configuration.AsEnumerable())
+// ==== MongoDB Settings from Environment Variables ====
+var mongoConnectionString = Environment.GetEnvironmentVariable("MONGO_CONNECTION_STRING");
+var mongoDatabaseName = Environment.GetEnvironmentVariable("MONGO_DATABASE_NAME") ?? "running_app_users";
+
+if (string.IsNullOrEmpty(mongoConnectionString))
 {
-    Console.WriteLine($"CONFIG: {kvp.Key} = {kvp.Value}");
+    throw new InvalidOperationException("Missing MONGO_CONNECTION_STRING environment variable.");
 }
 
-// Add services to the container.
-builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
+builder.Services.Configure<MongoDbSettings>(options =>
+{
+    options.ConnectionString = mongoConnectionString;
+    options.DatabaseName = mongoDatabaseName;
+});
+
 builder.Services.AddSingleton<RunRepository>();
 
+// ==== Controllers and JSON ====
 builder.Services.AddControllers().AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
-    }); ;
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-
-// Configure JWT Authentication (needs to match User.Service's JWT settings)
+// ==== JWT Authentication ====
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
 if (jwtSettings == null || string.IsNullOrEmpty(jwtSettings.Secret))
 {
-    throw new InvalidOperationException("JWT settings are missing or invalid in appsettings.json for Run.Service. They must match User.Service's settings.");
+    throw new InvalidOperationException("JWT settings are missing or invalid in appsettings.json for Run.Service.");
 }
+
 var key = Encoding.ASCII.GetBytes(jwtSettings.Secret);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
-        var key = Encoding.ASCII.GetBytes(jwtSettings.Secret);
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
@@ -53,33 +58,32 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// Configure CORS
+// ==== CORS: Allow any origin (use with caution in production) ====
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://localhost:5173") // Your React frontend URL
-                          .AllowAnyHeader()
-                          .AllowAnyMethod()
-                          .AllowCredentials());
+    options.AddPolicy("AllowAllOrigins", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ==== Middleware pipeline ====
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// app.UseHttpsRedirection(); // Uncomment in production if using HTTPS
+// Enable HTTPS redirection
+app.UseHttpsRedirection();
 
 app.UseRouting();
-app.UseCors("AllowSpecificOrigin"); // Use CORS policy
-
-app.UseAuthentication(); // Must be before UseAuthorization
+app.UseCors("AllowAllOrigins");
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

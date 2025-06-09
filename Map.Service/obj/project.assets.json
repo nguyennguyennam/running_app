@@ -1234,11 +1234,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Map.Service\\Map.Service.csproj",
+      "projectUniqueName": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Map.Service\\Map.Service.csproj",
       "projectName": "Map.Service",
-      "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Map.Service\\Map.Service.csproj",
+      "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Map.Service\\Map.Service.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Map.Service\\obj\\",
+      "outputPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Map.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1259,8 +1259,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\User.Service\\User.Service.csproj": {
-              "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\User.Service\\User.Service.csproj"
+            "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\User.Service\\User.Service.csproj": {
+              "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\User.Service\\User.Service.csproj"
             }
           }
         }

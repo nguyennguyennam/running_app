@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L4ZRMOHrPmE=",
+  "dgSpecHash": "nceAWT8i95M=",
   "success": false,
-  "projectFilePath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Image.Service\\Image.Service.csproj",
+  "projectFilePath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Image.Service\\Image.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
@@ -68,8 +68,8 @@
       "code": "NU1201",
       "level": "Error",
       "message": "Project User.Service is not compatible with net6.0 (.NETCoreApp,Version=v6.0). Project User.Service supports: net8.0 (.NETCoreApp,Version=v8.0)",
-      "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Image.Service\\Image.Service.csproj",
-      "filePath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Image.Service\\Image.Service.csproj",
+      "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Image.Service\\Image.Service.csproj",
+      "filePath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running_app\\Image.Service\\Image.Service.csproj",
       "libraryId": "User.Service",
       "targetGraphs": [
         "net6.0"
