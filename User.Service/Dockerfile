@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 
@@ -11,7 +11,7 @@ WORKDIR /app/User.Service
 RUN dotnet publish "User.Service.csproj" -c Release -o /app/publish/User.Service /p:UseAppHost=false
 
 # Stage 2: Create the final runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 
 # Copy the published output from the build stage into its specific subfolder
