@@ -18,7 +18,7 @@
     },
     {
       "DownstreamPathTemplate": "/api/auth/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "running-app-1.onrender.com",
@@ -33,7 +33,7 @@
     },
     {
       "DownstreamPathTemplate": "/api/runs",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "running-app-runs-service.onrender.com"
@@ -50,7 +50,7 @@
     },
     {
       "DownstreamPathTemplate": "/api/runs/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "running-app-runs-service.onrender.com",
@@ -68,7 +68,7 @@
     },
     {
       "DownstreamPathTemplate": "/api/images/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "running-app-imageservice.onrender.com",
@@ -88,7 +88,7 @@
     },
     {
       "DownstreamPathTemplate": "/api/maps/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "running-app-mapservice.onrender.com",
@@ -107,7 +107,7 @@
     },
     {
       "DownstreamPathTemplate": "/analyze/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "running-app-analyzeservice.onrender.com",
