@@ -622,7 +622,7 @@
           "BCrypt.Net-Next": "4.0.3",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.29",
           "MongoDB.Driver": "2.27.0",
-          "Swashbuckle.AspNetCore": "6.5.0",
+          "Swashbuckle.AspNetCore": "8.1.4",
           "System.IdentityModel.Tokens.Jwt": "6.35.0"
         },
         "compile": {
@@ -2131,5 +2131,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 8.1.4 to 6.5.0. Reference the package directly from the project to select a different version. \r\n Run.Service -> User.Service -> Swashbuckle.AspNetCore (>= 8.1.4) \r\n Run.Service -> Swashbuckle.AspNetCore (>= 6.5.0)",
+      "libraryId": "Swashbuckle.AspNetCore",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

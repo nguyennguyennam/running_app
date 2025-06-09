@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "t7Cj28z/nmE=",
-  "success": true,
+  "dgSpecHash": "3cpOOidZwhc=",
+  "success": false,
   "projectFilePath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Map.Service\\Map.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
@@ -49,5 +49,17 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 8.1.4 to 6.5.0. Reference the package directly from the project to select a different version. \r\n Map.Service -> User.Service -> Swashbuckle.AspNetCore (>= 8.1.4) \r\n Map.Service -> Swashbuckle.AspNetCore (>= 6.5.0)",
+      "projectPath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Map.Service\\Map.Service.csproj",
+      "filePath": "D:\\Nam_3\\HK3\\Software_Architecture\\lab1\\source_code\\running-app\\Map.Service\\Map.Service.csproj",
+      "libraryId": "Swashbuckle.AspNetCore",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

@@ -3,12 +3,11 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using User.Service.Repositories;
 using User.Service.Services;
-using User.Service.Models; // <-- Đảm bảo dòng này có
+using User.Service.Models; 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 builder.Services.AddSingleton<UserRepository>();
 builder.Services.AddSingleton<JwtService>();
@@ -16,6 +15,12 @@ builder.Services.AddSingleton<JwtService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.Configure<MongoDbSettings>(options =>
+{
+    options.ConnectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") ?? builder.Configuration.GetValue<string>("MongoDbSettings:ConnectionString");
+    options.DatabaseName = Environment.GetEnvironmentVariable("MONGO_DATABASE_NAME") ?? builder.Configuration.GetValue<string>("MongoDbSettings:DatabaseName");
+});
 
 // Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
