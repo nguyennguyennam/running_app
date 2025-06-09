@@ -1,5 +1,5 @@
 # Gateway.Service/Dockerfile
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # Copy the csproj and restore dependencies
@@ -16,7 +16,7 @@ WORKDIR /app/Gateway.Service
 # Publish the application
 RUN dotnet publish "Gateway.Service.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 
