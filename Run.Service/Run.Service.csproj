@@ -9,7 +9,129 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.29" />
     <PackageReference Include="MongoDB.Driver" Version="2.27.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+M
+My Workspace
+running_app_micro
+Menu
+Production
+Menu
+running_app-Runs.service
+Menu
+
+Search
+Ctrl+
+K
+
+New
+
+Upgrade
+
+
+n
+Environment
+running_app-Runs.service
+Events
+Settings
+Monitor
+Logs
+Metrics
+Manage
+Environment
+Shell
+Scaling
+Previews
+Disks
+Jobs
+
+Changelog
+Invite a friend
+
+Contact support
+Render Status
+Web Service
+running_app-Runs.service
+Docker
+Free
+Upgrade your instance
+
+Connect
+
+Manual Deploy
+nguyennguyennam / running_app
+main
+https://running-app-runs-service.onrender.com
+
+Your free instance will spin down with inactivity, which can delay requests by 50 seconds or more.
+Upgrade now
+June 9, 2025 at 10:45 AM
+failed
+d32dddf
+fix version conflict
+
+Rollback
+Exited with status 1 while building your code.
+Read our docs for common ways to troubleshoot your deploy.
+
+All logs
+Search
+Search
+
+Jun 9, 10:44 AM - 10:47 AM
+GMT+7
+
+Menu
+#6 [build 1/6] FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:b56053d0a8f4627047740941396e76cd9e7a9421c83b1d81b68f10e5019862d7
+#6 extracting sha256:6100e16b81bb1107617f44d1418d3a90ad2b6141e7eb6b62e9209b8161468dad
+#6 extracting sha256:6100e16b81bb1107617f44d1418d3a90ad2b6141e7eb6b62e9209b8161468dad 2.5s done
+#6 DONE 4.4s
+#6 [build 1/6] FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:b56053d0a8f4627047740941396e76cd9e7a9421c83b1d81b68f10e5019862d7
+#6 extracting sha256:6be803f2e417d9273217eb046d5873a9a6eae9df3964122aa7ea9ca35dc3a1dd
+#6 extracting sha256:6be803f2e417d9273217eb046d5873a9a6eae9df3964122aa7ea9ca35dc3a1dd 6.1s done
+#6 extracting sha256:56e865230101b29674f23d77722367d3fd874a848e9e1542bbdf5540ff19fecd 0.0s done
+#6 DONE 10.5s
+#6 [build 1/6] FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:b56053d0a8f4627047740941396e76cd9e7a9421c83b1d81b68f10e5019862d7
+#6 extracting sha256:0303e73175f841ac46b1ffaa53a4a5fde371101b3d490f6cad23f2fa8bb9a533
+#6 extracting sha256:0303e73175f841ac46b1ffaa53a4a5fde371101b3d490f6cad23f2fa8bb9a533 0.4s done
+#6 DONE 10.9s
+#10 [build 2/6] WORKDIR /app
+#10 DONE 0.0s
+#11 [build 3/6] COPY . .
+#11 DONE 0.0s
+#12 [build 4/6] RUN dotnet restore "Run.Service/Run.Service.csproj"
+#12 0.697   Determining projects to restore...
+#12 8.603 /app/Run.Service/Run.Service.csproj : error NU1605: Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 8.1.4 to 6.5.0. Reference the package directly from the project to select a different version. 
+#12 8.603 /app/Run.Service/Run.Service.csproj : error NU1605:  Run.Service -> User.Service -> Swashbuckle.AspNetCore (>= 8.1.4) 
+#12 8.603 /app/Run.Service/Run.Service.csproj : error NU1605:  Run.Service -> Swashbuckle.AspNetCore (>= 6.5.0)
+#12 8.637   Restored /app/User.Service/User.Service.csproj (in 7.55 sec).
+#12 8.637   Failed to restore /app/Run.Service/Run.Service.csproj (in 7.55 sec).
+#12 ERROR: process "/bin/sh -c dotnet restore \"Run.Service/Run.Service.csproj\"" did not complete successfully: exit code: 1
+------
+ > [build 4/6] RUN dotnet restore "Run.Service/Run.Service.csproj":
+0.697   Determining projects to restore...
+8.603 /app/Run.Service/Run.Service.csproj : error NU1605: Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 8.1.4 to 6.5.0. Reference the package directly from the project to select a different version. 
+8.603 /app/Run.Service/Run.Service.csproj : error NU1605:  Run.Service -> User.Service -> Swashbuckle.AspNetCore (>= 8.1.4) 
+8.603 /app/Run.Service/Run.Service.csproj : error NU1605:  Run.Service -> Swashbuckle.AspNetCore (>= 6.5.0)
+8.637   Restored /app/User.Service/User.Service.csproj (in 7.55 sec).
+8.637   Failed to restore /app/Run.Service/Run.Service.csproj (in 7.55 sec).
+------
+Dockerfile:6
+--------------------
+   4 |     
+   5 |     COPY . .
+   6 | >>> RUN dotnet restore "Run.Service/Run.Service.csproj"
+   7 |     WORKDIR /app/Run.Service
+   8 |     
+--------------------
+error: failed to solve: process "/bin/sh -c dotnet restore \"Run.Service/Run.Service.csproj\"" did not complete successfully: exit code: 1
+error: exit status 1
+Need better ways to work with logs? Try theRender CLIor set up a log stream integration 
+
+0 services selected:
+
+Move
+
+Generate Blueprint
+
     <ProjectReference Include="..\User.Service\User.Service.csproj" /> </ItemGroup>
 
 </Project>
