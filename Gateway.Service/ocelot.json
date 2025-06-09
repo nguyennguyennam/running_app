@@ -18,25 +18,25 @@
     },
     {
       "DownstreamPathTemplate": "/api/auth/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "running-app-1.onrender.com",
-          "Port": 443
+          "Host": "running-app-1",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}",
       "UpstreamHttpMethod": [
         "POST"
-      ],
-      "DangerousAcceptAnyServerCertificateValidator": true
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/runs",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "running-app-runs-service.onrender.com"
+          "Host": "running-app-runs-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/runs",
@@ -50,11 +50,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/runs/{everything}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "running-app-runs-service.onrender.com",
-          "Port": 443
+          "Host": "running-app-runs-service",
+          "Port": 8080
         }
       ],
       "UpstreamPathTemplate": "/api/runs/{everything}",
