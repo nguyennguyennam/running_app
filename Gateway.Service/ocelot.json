@@ -21,7 +21,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "running-app-1",
+          "Host": "running_app-User.Service",
           "Port": 8080
         }
       ],
