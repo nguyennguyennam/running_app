@@ -1,12 +1,28 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/auth/{everything}",
-      "DownstreamScheme": "http", 
+      "DownstreamPathTemplate": "/", 
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "running-app-1.onrender.com", 
-          "Port": 443 
+          "Host": "running-app-frontend.onrender.com", 
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/", 
+      "UpstreamHttpMethod": [
+        "GET",
+        "HEAD"
+      ], 
+      "Priority": 1 
+    },
+    {
+      "DownstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "running-app-1.onrender.com",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/api/auth/{everything}",
@@ -17,7 +33,7 @@
     },
     {
       "DownstreamPathTemplate": "/api/runs",
-      "DownstreamScheme": "http", 
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "running-app-runs-service.onrender.com"
@@ -34,11 +50,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/runs/{everything}",
-      "DownstreamScheme": "http", 
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "running-app-runs-service.onrender.com",
-          "Port": 443 
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/api/runs/{everything}",
@@ -52,11 +68,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/images/{everything}",
-      "DownstreamScheme": "http", 
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "running-app-imageservice.onrender.com", 
-          "Port": 443 
+          "Host": "running-app-imageservice.onrender.com",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/api/images/{everything}",
@@ -72,11 +88,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/maps/{everything}",
-      "DownstreamScheme": "http", 
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "running-app-mapservice.onrender.com", 
-          "Port": 443 
+          "Host": "running-app-mapservice.onrender.com",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/api/maps/{everything}",
@@ -90,15 +106,15 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/analyze/{everything}", 
+      "DownstreamPathTemplate": "/analyze/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "running-app-analyzeservice.onrender.com", 
-          "Port": 443 
+          "Host": "running-app-analyzeservice.onrender.com",
+          "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/api/analyze/{everything}", 
+      "UpstreamPathTemplate": "/api/analyze/{everything}",
       "UpstreamHttpMethod": [
         "POST"
       ],
